@@ -8,31 +8,32 @@ import org.springframework.core.Ordered;
 import com.yammer.metrics.annotation.Timed;
 import com.yammer.metrics.core.MetricsRegistry;
 
-public class TimedAnnotationBeanPostProcessor extends AbstractProxyingBeanPostProcessor implements
-                                                                                        Ordered {
+public class TimedAnnotationBeanPostProcessor extends
+		AbstractProxyingBeanPostProcessor implements Ordered {
 
-    private static final long serialVersionUID = -1589475386869891203L;
+	private static final long serialVersionUID = -1589475386869891203L;
 
-    private final Pointcut pointcut = new AnnotationMatchingPointcut(null, Timed.class);
-    private final MetricsRegistry metrics;
+	private final Pointcut pointcut = new AnnotationMatchingPointcut(null,
+			Timed.class);
+	private final MetricsRegistry metrics;
 
-    public TimedAnnotationBeanPostProcessor(final MetricsRegistry metrics) {
-        this.metrics = metrics;
-    }
+	public TimedAnnotationBeanPostProcessor(final MetricsRegistry metrics) {
+		this.metrics = metrics;
+	}
 
-    @Override
-    public Pointcut getPointcut() {
-        return pointcut;
-    }
+	@Override
+	public Pointcut getPointcut() {
+		return pointcut;
+	}
 
-    @Override
-    public MethodInterceptor getMethodInterceptor(Class<?> targetClass) {
-        return new TimedMethodInterceptor(metrics, targetClass);
-    }
+	@Override
+	public MethodInterceptor getMethodInterceptor(Class<?> targetClass) {
+		return new TimedMethodInterceptor(metrics, targetClass);
+	}
 
-    @Override
-    public int getOrder() {
-        return HIGHEST_PRECEDENCE;
-    }
+	// @Override
+	public int getOrder() {
+		return HIGHEST_PRECEDENCE;
+	}
 
 }

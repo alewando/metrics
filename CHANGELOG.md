@@ -8,6 +8,11 @@ v2.0.0: TBD
 * Switched to using a backported version of `ThreadLocalRandom` for `UniformSample` and
   `ExponentiallyDecayingSample` to reduce lock contention on random number generation.
 
+v2.0.0-RC0-hava5: Feb 6 2012
+=======================
+* Backported to java 5
+  * Includes modules: core, annotations, spring, servlet, web, log4j, logback
+
 
 v2.0.0-RC0: Jan 19 2012
 =======================
