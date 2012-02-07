@@ -1,10 +1,9 @@
 Metrics
 =======
 
-*Capturing JVM- and application-level metrics. So you know what's going on.*
+This is a backport of selected modules from the Metrics project to Java 5
 
 For more information, please see [the documentation](http://metrics.codahale.com).
-
 
 License
 -------
